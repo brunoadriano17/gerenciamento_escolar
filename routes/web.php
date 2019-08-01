@@ -22,7 +22,8 @@ Route::put('/{id}', 'UsuarioController@update');
 Route::get('/nivel', 'NivelController@index');
 Route::get('/nivel/form', 'NivelController@create');
 Route::post('/nivel', 'NivelController@store');
-
+Route::get('/nivel/{id}/edit', 'NivelController@edit');
+Route::put('/nivel/{id}', 'NivelController@update');
 
 
 Route::post('/nivel/delete', 'NivelController@delete');

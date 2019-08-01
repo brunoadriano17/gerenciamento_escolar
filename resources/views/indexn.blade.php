@@ -23,11 +23,7 @@
         <td>{{$n->id}}</td>
         <td>{{$n->nome}}</td>
         <td>
-        <form action="{{url('/nivel/delete')}}" method="POST">
-        @csrf
-            <input type="hidden" name="id" value="{{$n->id}}" />
-            <button type="submit">Deletar</button>
-        </form>
+        <a href="{{url('/nivel/' . $n->id .'/edit')}}">Editar</a>
         </td>
 
     </tr>

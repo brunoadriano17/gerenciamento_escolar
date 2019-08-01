@@ -7,10 +7,13 @@
     <title>Cadastrar Nivel</title>
 </head>
 <body>
-<form method="POST" action="{{url('/nivel')}}">
+<form method="POST" action="{{url('/nivel/'.(isset($nivel) ? $nivel->id : '') )}}">
 @csrf
+@if(isset($nivel))
+        {{ method_field('PUT') }}
+    @endif
     <label for="nome">Nome</label>
-    <input type="text" name="nome" placeholder="Insira o nome do nível" id="nome"><br>
+    <input type="text" value ="{{isset($nivel) ? $nivel->nome : ''}}" name="nome" placeholder="Insira o nome do nível" id="nome"><br>
     <input type="submit" value="Enviar">
 
 </form>

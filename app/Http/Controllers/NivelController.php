@@ -30,4 +30,16 @@ class NivelController extends Controller
         $i->softDelete();
         return redirect ('/nivel');
     }
+
+    public function edit($id){
+        $nivel = Nivel::findOrFail($id);
+        return view('form_nivel', compact('nivel'));
+
+    }
+
+    public function update(Request $request, $id){
+        Nivel::findOrFail($id)->update($request->all());
+
+        return redirect('/nivel');
+    }
 }
