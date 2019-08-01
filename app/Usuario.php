@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Model
 {
@@ -13,6 +14,5 @@ class Usuario extends Model
     public function nivel(){
         return $this->belongsTo('App\Nivel');
     }
-
-
+    
 }

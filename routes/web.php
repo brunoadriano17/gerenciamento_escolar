@@ -14,6 +14,15 @@
 Route::get('/', 'UsuarioController@index');
 Route::get('/form', 'UsuarioController@create');
 Route::post('/', 'UsuarioController@store');
+Route::get('/{id}/edit', 'UsuarioController@edit');
+Route::put('/{id}', 'UsuarioController@update');
 
-Route::get('/soma/{a}/{b}', 'UsuarioController@soma');
 
+//Rotas de Nivel
+Route::get('/nivel', 'NivelController@index');
+Route::get('/nivel/form', 'NivelController@create');
+Route::post('/nivel', 'NivelController@store');
+
+
+
+Route::post('/nivel/delete', 'NivelController@delete');

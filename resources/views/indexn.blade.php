@@ -6,29 +6,30 @@
     <title>KK EAE MAN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="main.js"></script>
 </head>
 <body>
-    <p> EAE MAN </p>
-    <a href="{{url('/form')}}">Cadastrar</a>
-    <a href="{{url('/nivel')}}">Niveis</a>
+    <p> Niveis </p>
+    <a href="{{url('/nivel/form')}}">Cadastrar</a>
     <table border="1">
     <tr>
+        <th>Id</th>
         <th>Nome</th>
-        <th>Email</th>
-        <th>Data de Nascimento</th>
-        <th>Nivel</th>
-        <th>Ações</th>
+        <th>#</th>
     </tr>
-    @foreach($usuarios as $u)
+    @foreach($niveis as $n)
     <tr>
-        <td>{{$u->nome}}</td>
-        <td>{{$u->email}}</td>
-        <td>{{$u->data_nascimento}}</td>
-        <td>{{$u->nivel->nome}}</td>
+        <td>{{$n->id}}</td>
+        <td>{{$n->nome}}</td>
         <td>
-        <a href="{{url('/' . $u->id .'/edit')}}">Editar</a>
+        <form action="{{url('/nivel/delete')}}" method="POST">
+        @csrf
+            <input type="hidden" name="id" value="{{$n->id}}" />
+            <button type="submit">Deletar</button>
+        </form>
         </td>
+
     </tr>
     @endforeach
 
